@@ -5,6 +5,10 @@
 [org 0x7c00]
 [bits 16]
 
+xor ax, ax
+mov ds, ax
+mov es, ax
+
 mov [BOOT_DRIVE], dl
 
 mov ah, 0x02 ; some cursor BS (vga teletype mode)
@@ -14,7 +18,7 @@ mov dl, 0
 int 0x10
 
 mov ah, 0x02 ; interrupt 13h my beloved
-mov al, 5
+mov al, 8
 mov ch, 0x00
 mov dh, 0x00
 mov cl, 0x02
